@@ -1,0 +1,44 @@
+<script>
+let boss = ("Almighty Grant");
+let bossHP = 10;
+let wins = 0;
+let lives = 40;
+    //see if they want to play
+let play = prompt("Do you want to play a game?");
+if ('Yes'){
+    let name = prompt("Enter your characters name.");
+    //got there character name
+
+    console.log(name +" has " + lives + " lives.");
+    console.log(boss + " has " + bossHP + " lives.");
+    //they know they have 40 lives
+
+    //initiate fight sequence
+    let fight = false;
+    while (fight === false){
+        if(lives > 0){
+            lives -= Math.floor(Math.random() * 2) +1;
+                console.log(name + " has " + lives + " lives.");
+            }else if (lives <= 0){
+                console.log("You lose.");
+            }
+        if(bossHP > 0){
+            bossHP -= Math.floor(Math.random() * 2) +1;
+                console.log(boss + " has " + bossHP +" lives.");
+            }else if (bossHP <= 0){
+                wins += 1;
+                console.log("You've taken one of the Almighty Grant's lives.");
+                bossHP = 10;
+            }
+        if(lives <= 0){
+            fight = true;
+            console.log("You have fallen to the Almighty Grant...")
+        }
+        if(wins >= 3){
+            fight = true;
+            console.log(name + " has defeated the Almighty Grant!");
+        }
+    }
+}
+
+</script>
